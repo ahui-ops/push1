@@ -1,0 +1,230 @@
+import type { ChannelGroup, ChatPreview, Message } from "./types";
+
+export type MessageMap = Record<string, Message[]>;
+
+export const defaultSelectedChat: ChatPreview = {
+  id: "1",
+  name: "Design Team",
+  lastMessage: "Sarah: The new mockups are ready",
+  timestamp: "2m",
+  isGroup: true,
+  members: [
+    "user1",
+    "user2",
+    "user3",
+    "user4",
+    "user5",
+    "user6",
+    "user7",
+    "user8",
+    "user9",
+    "user10",
+    "user11",
+    "user12",
+  ],
+  unread: 3,
+};
+
+export const chatPreviews: ChatPreview[] = [
+  defaultSelectedChat,
+  {
+    id: "2",
+    name: "Alex Morgan",
+    lastMessage: "Perfect! See you tomorrow 👍",
+    timestamp: "15m",
+    isGroup: false,
+    members: ["alex"],
+  },
+  {
+    id: "3",
+    name: "Project Alpha",
+    lastMessage: "Mike: Meeting rescheduled to 3pm",
+    timestamp: "1h",
+    isGroup: true,
+    members: ["user1", "user2", "user3", "user4", "user5"],
+    unread: 1,
+  },
+  {
+    id: "4",
+    name: "Emma Wilson",
+    lastMessage: "Thanks for the update!",
+    timestamp: "2h",
+    isGroup: false,
+    members: ["emma"],
+  },
+  {
+    id: "5",
+    name: "Marketing Squad",
+    lastMessage: "Lisa: Campaign results look great",
+    timestamp: "3h",
+    isGroup: true,
+    members: ["user1", "user2", "user3", "user4", "user5", "user6", "user7"],
+  },
+  {
+    id: "6",
+    name: "James Lee",
+    lastMessage: "Can you review my PR?",
+    timestamp: "5h",
+    isGroup: false,
+    members: ["james"],
+  },
+  {
+    id: "7",
+    name: "Weekend Plans",
+    lastMessage: "Tom: I'm in! 🎉",
+    timestamp: "Yesterday",
+    isGroup: true,
+    members: ["user1", "user2", "user3", "user4"],
+  },
+  {
+    id: "8",
+    name: "Sophie Chen",
+    lastMessage: "Got it, will do!",
+    timestamp: "Yesterday",
+    isGroup: false,
+    members: ["sophie"],
+  },
+];
+
+export const channelGroups: ChannelGroup[] = [
+  {
+    id: "1",
+    name: "TEXT CHANNELS",
+    channels: [
+      { id: "t1", name: "general", type: "text" },
+      { id: "t2", name: "announcements", type: "text" },
+      { id: "t3", name: "random", type: "text" },
+      { id: "t4", name: "help", type: "text" },
+    ],
+  },
+  {
+    id: "2",
+    name: "VOICE CHANNELS",
+    channels: [
+      { id: "v1", name: "General Voice", type: "voice" },
+      { id: "v2", name: "Team Meeting", type: "voice" },
+      { id: "v3", name: "Lounge", type: "voice" },
+    ],
+  },
+];
+
+export const initialMessages: MessageMap = {
+  "1-t1": [
+    {
+      id: "1",
+      text: "Hey everyone! How's the progress on the new feature?",
+      sender: "Sarah Johnson",
+      timestamp: "10:30 AM",
+      isCurrentUser: false,
+      readBy: [],
+    },
+    {
+      id: "2",
+      text: "Going well! I've finished the frontend components.",
+      sender: "You",
+      timestamp: "10:32 AM",
+      isCurrentUser: true,
+      readBy: [
+        "user1",
+        "user2",
+        "user3",
+        "user4",
+        "user5",
+        "user6",
+        "user7",
+        "user8",
+        "user9",
+        "user10",
+        "user11",
+      ],
+    },
+    {
+      id: "3",
+      text: "That's great! Can you share a preview?",
+      sender: "Mike Davis",
+      timestamp: "10:33 AM",
+      isCurrentUser: false,
+      readBy: [],
+    },
+    {
+      id: "4",
+      text: "Sure! I'll post some screenshots in a few minutes.",
+      sender: "You",
+      timestamp: "10:35 AM",
+      isCurrentUser: true,
+      readBy: ["user1", "user2", "user3"],
+    },
+  ],
+  "1-t2": [
+    {
+      id: "a1",
+      text: "Team meeting scheduled for tomorrow at 2 PM",
+      sender: "Sarah Johnson",
+      timestamp: "Yesterday",
+      isCurrentUser: false,
+      readBy: [],
+    },
+  ],
+  "1-t3": [
+    {
+      id: "r1",
+      text: "Anyone want to grab lunch?",
+      sender: "Mike Davis",
+      timestamp: "11:30 AM",
+      isCurrentUser: false,
+      readBy: [],
+    },
+  ],
+  "2": [
+    {
+      id: "d1",
+      text: "Hey! Did you see my email about the project?",
+      sender: "Alex Morgan",
+      timestamp: "9:15 AM",
+      isCurrentUser: false,
+      readBy: [],
+    },
+    {
+      id: "d2",
+      text: "Yes! Everything looks good to me.",
+      sender: "You",
+      timestamp: "9:20 AM",
+      isCurrentUser: true,
+      readBy: ["alex"],
+    },
+    {
+      id: "d3",
+      text: "Perfect! See you tomorrow 👍",
+      sender: "Alex Morgan",
+      timestamp: "9:25 AM",
+      isCurrentUser: false,
+      readBy: [],
+    },
+  ],
+  "4": [
+    {
+      id: "e1",
+      text: "Can you help me with the bug I found?",
+      sender: "Emma Wilson",
+      timestamp: "2:00 PM",
+      isCurrentUser: false,
+      readBy: [],
+    },
+    {
+      id: "e2",
+      text: "Sure! What's the issue?",
+      sender: "You",
+      timestamp: "2:05 PM",
+      isCurrentUser: true,
+      readBy: [],
+    },
+    {
+      id: "e3",
+      text: "Thanks for the update!",
+      sender: "Emma Wilson",
+      timestamp: "2:30 PM",
+      isCurrentUser: false,
+      readBy: [],
+    },
+  ],
+};
